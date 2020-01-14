@@ -3,6 +3,7 @@ package com.fabio;
 import java.time.YearMonth;
 
 public class MonthlySalesDataPOJO {
+	
 	private Integer salesNumber;
 	private YearMonth date;
 	

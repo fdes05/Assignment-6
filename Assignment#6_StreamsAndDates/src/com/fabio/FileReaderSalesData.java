@@ -16,7 +16,7 @@ public class FileReaderSalesData {
 	public List<MonthlySalesDataPOJO> fileReaderInput(String fileName) throws IOException {
 	
 		List<MonthlySalesDataPOJO> listSalesData = new ArrayList<>();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("LLL-YY");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("LLL-yy");
 		
 		BufferedReader fileReader = null;
 		String[] fileInput = null;
@@ -34,9 +34,11 @@ public class FileReaderSalesData {
 				}else {
 					String salesDate = fileInput[0];
 					String salesNumber = fileInput[1];
-																				
+																											
 					YearMonth salesDateParsed = YearMonth.parse(salesDate, formatter);
-					Integer salesNumberParsed = Integer.parseInt(salesNumber);					
+					Integer salesNumberParsed = Integer.parseInt(salesNumber);
+					
+					//System.out.println(salesDateParsed.getYear() + " " + salesDateParsed.getMonth());
 										
 					MonthlySalesDataPOJO salesDataObject = new MonthlySalesDataPOJO(salesDateParsed,salesNumberParsed);
 					
